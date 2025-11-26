@@ -1,6 +1,25 @@
-# Sistema de desarrollo asistido por IA
+<div align="center">
 
-Framework para desarrollo de software con agentes IA de forma metódica, trazable y escalable.
+# .ai-dev
+
+### Framework para desarrollo de software con agentes IA
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![GitHub issues](https://img.shields.io/github/issues/soydachi/.ai-dev)](https://github.com/soydachi/.ai-dev/issues)
+[![GitHub stars](https://img.shields.io/github/stars/soydachi/.ai-dev)](https://github.com/soydachi/.ai-dev/stargazers)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
+**Desarrollo metódico, trazable y escalable con agentes IA**
+
+[Inicio Rápido](#inicio-rápido) •
+[Documentación](#estructura-del-framework) •
+[Contribuir](CONTRIBUTING.md) •
+[Estándares](#estándares-disponibles)
+
+</div>
+
+---
 
 ## Problema que resuelve
 
@@ -220,6 +239,58 @@ Sí. Copia `.ai-dev/`, edita `CONTEXT.md` con el estado actual y comienza.
 **¿Es obligatorio Gherkin?**
 Recomendado pero no obligatorio. Puedes usar otro formato de especificación.
 
-## Soporte
+## Compatibilidad
 
-Para mejoras o issues, contacta al equipo de Platform Engineering.
+Este framework es **agnóstico** y funciona con cualquier agente IA:
+
+| Agente | Compatibilidad |
+|--------|----------------|
+| Claude | Excelente |
+| GPT-4 / ChatGPT | Excelente |
+| GitHub Copilot | Excelente |
+| Gemini | Excelente |
+| Otros LLMs | Buena |
+
+## Contribuir
+
+¡Las contribuciones son bienvenidas! Hay muchas formas de ayudar:
+
+- Reportar bugs o sugerir mejoras
+- Añadir nuevos estándares técnicos
+- Mejorar la documentación existente
+- Traducir a otros idiomas
+- Compartir tu experiencia usándolo
+
+Lee la [guía de contribución](CONTRIBUTING.md) para comenzar.
+
+### Good First Issues
+
+¿Primera vez contribuyendo? Busca issues etiquetados con:
+
+[![good first issue](https://img.shields.io/github/labels/soydachi/.ai-dev/good%20first%20issue)](https://github.com/soydachi/.ai-dev/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+[![help wanted](https://img.shields.io/github/labels/soydachi/.ai-dev/help%20wanted)](https://github.com/soydachi/.ai-dev/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+
+## Contributors
+
+<a href="https://github.com/soydachi/.ai-dev/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=soydachi/.ai-dev" alt="Contributors" />
+</a>
+
+## Comunidad
+
+- [Discussions](https://github.com/soydachi/.ai-dev/discussions) - Preguntas, ideas y conversaciones
+- [Issues](https://github.com/soydachi/.ai-dev/issues) - Reportar bugs o sugerir features
+
+## Licencia
+
+Este proyecto está bajo la licencia Apache 2.0 - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+<div align="center">
+
+**¿Te ha sido útil?** Dale una estrella y compártelo
+
+[![Star History Chart](https://api.star-history.com/svg?repos=soydachi/.ai-dev&type=Date)](https://star-history.com/#soydachi/.ai-dev&Date)
+
+</div>

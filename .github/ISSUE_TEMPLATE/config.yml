@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Preguntas y discusiones"
+    url: https://github.com/soydachi/.ai-dev/discussions
+    about: "Para preguntas generales, usa GitHub Discussions en lugar de Issues"
+  - name: "Reportar vulnerabilidad de seguridad"
+    url: https://github.com/soydachi/.ai-dev/security/advisories/new
+    about: "Para reportar vulnerabilidades de seguridad de forma privada"

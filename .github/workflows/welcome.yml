@@ -1,0 +1,43 @@
+name: Welcome New Contributors
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            ¡Hola @${{ github.actor }}! 👋
+
+            Gracias por abrir tu primer issue en `.ai-dev`.
+
+            Mientras esperamos que alguien lo revise, asegúrate de que:
+            - Has proporcionado toda la información necesaria
+            - Has buscado issues similares antes de crear este
+
+            Si tienes preguntas generales, también puedes usar [Discussions](https://github.com/soydachi/.ai-dev/discussions).
+
+            ¡Gracias por contribuir!
+
+          pr-message: |
+            ¡Hola @${{ github.actor }}! 👋
+
+            ¡Gracias por tu primera contribución a `.ai-dev`! 🎉
+
+            Un mantenedor revisará tu PR pronto. Mientras tanto, asegúrate de que:
+            - [ ] Tu PR sigue la [guía de contribución](CONTRIBUTING.md)
+            - [ ] Has descrito claramente los cambios
+            - [ ] El markdown renderiza correctamente
+
+            ¡Apreciamos tu tiempo y esfuerzo!

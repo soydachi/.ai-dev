@@ -1,0 +1,123 @@
+name: Lint & Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+
+      - name: Run markdownlint
+        run: markdownlint '**/*.md' --ignore node_modules --ignore .git
+
+  link-check:
+    name: Check Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --verbose --no-progress '**/*.md' --exclude-path node_modules
+          fail: true
+
+  validate-structure:
+    name: Validate Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required files exist
+        run: |
+          echo "Checking required files..."
+
+          required_files=(
+            "AGENT.md"
+            "CONTEXT.md"
+            "TASKS.md"
+            "README.md"
+            "LICENSE"
+            "CONTRIBUTING.md"
+            "CODE_OF_CONDUCT.md"
+            "SECURITY.md"
+          )
+
+          missing_files=()
+
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              missing_files+=("$file")
+            fi
+          done
+
+          if [ ${#missing_files[@]} -ne 0 ]; then
+            echo "❌ Missing required files:"
+            printf '%s\n' "${missing_files[@]}"
+            exit 1
+          fi
+
+          echo "✅ All required files present"
+
+      - name: Check required directories exist
+        run: |
+          echo "Checking required directories..."
+
+          required_dirs=(
+            "standards"
+            "templates"
+            "features"
+            "plans"
+          )
+
+          missing_dirs=()
+
+          for dir in "${required_dirs[@]}"; do
+            if [ ! -d "$dir" ]; then
+              missing_dirs+=("$dir")
+            fi
+          done
+
+          if [ ${#missing_dirs[@]} -ne 0 ]; then
+            echo "❌ Missing required directories:"
+            printf '%s\n' "${missing_dirs[@]}"
+            exit 1
+          fi
+
+          echo "✅ All required directories present"
+
+      - name: Validate standards have required sections
+        run: |
+          echo "Validating standards structure..."
+
+          for file in standards/*.md; do
+            if [ -f "$file" ] && [ "$(basename "$file")" != "README.md" ]; then
+              # Check for at least one heading
+              if ! grep -q "^#" "$file"; then
+                echo "❌ $file missing headings"
+                exit 1
+              fi
+            fi
+          done
+
+          echo "✅ All standards have valid structure"
